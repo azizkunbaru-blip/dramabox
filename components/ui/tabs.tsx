@@ -76,6 +76,4 @@ export function TabsTrigger({
       {...props}
     />
   );
-      }    />
-  );
 }
