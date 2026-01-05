@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from 'react';
 import { DramaSection } from '@/components/sections/drama-section';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
