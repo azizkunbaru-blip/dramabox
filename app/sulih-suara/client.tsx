@@ -22,7 +22,7 @@ export default function SulihSuaraClient() {
             <TabsTrigger
               value="latest"
               active={tab === "latest"}
-              onSelect={handleSelect}
+              onValueSelect={handleSelect}
             >
               Terbaru
             </TabsTrigger>
@@ -30,7 +30,7 @@ export default function SulihSuaraClient() {
             <TabsTrigger
               value="popular"
               active={tab === "popular"}
-              onSelect={handleSelect}
+              onValueSelect={handleSelect}
             >
               Terpopuler
             </TabsTrigger>
@@ -53,4 +53,4 @@ export default function SulihSuaraClient() {
       )}
     </div>
   );
-            }
+      }
