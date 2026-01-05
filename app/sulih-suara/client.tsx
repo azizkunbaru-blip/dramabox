@@ -1,33 +1,56 @@
 "use client";
 
-import { useState } from 'react';
-import { DramaSection } from '@/components/sections/drama-section';
-import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { getDubLatest, getDubPopular } from '@/lib/api/drama-service';
+import { useState } from "react";
+import { DramaSection } from "@/components/sections/drama-section";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { getDubLatest, getDubPopular } from "@/lib/api/drama-service";
 
 export default function SulihSuaraClient() {
-  const [tab, setTab] = useState<'latest' | 'popular'>('latest');
+  const [tab, setTab] = useState<"latest" | "popular">("latest");
+
+  const handleSelect = (v: string) => {
+    if (v === "latest" || v === "popular") setTab(v);
+  };
 
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold">Sulih Suara Indonesia</h1>
-        <Tabs value={tab} onValueChange={(v) => setTab(v as "latest" | "popular")}>
+
+        <Tabs value={tab} onValueChange={handleSelect}>
           <TabsList>
-            <TabsTrigger value="latest" active={tab === 'latest'} onSelect={setTab}>
+            <TabsTrigger
+              value="latest"
+              active={tab === "latest"}
+              onSelect={handleSelect}
+            >
               Terbaru
             </TabsTrigger>
-            <TabsTrigger value="popular" active={tab === 'popular'} onSelect={setTab}>
+
+            <TabsTrigger
+              value="popular"
+              active={tab === "popular"}
+              onSelect={handleSelect}
+            >
               Terpopuler
             </TabsTrigger>
           </TabsList>
         </Tabs>
       </div>
-      {tab === 'latest' ? (
-        <DramaSection title="Sulih Suara Terbaru" queryKey={['dub-latest']} queryFn={getDubLatest} />
+
+      {tab === "latest" ? (
+        <DramaSection
+          title="Sulih Suara Terbaru"
+          queryKey={["dub-latest"]}
+          queryFn={getDubLatest}
+        />
       ) : (
-        <DramaSection title="Sulih Suara Terpopuler" queryKey={['dub-popular']} queryFn={getDubPopular} />
+        <DramaSection
+          title="Sulih Suara Terpopuler"
+          queryKey={["dub-popular"]}
+          queryFn={getDubPopular}
+        />
       )}
     </div>
   );
-}
+            }
