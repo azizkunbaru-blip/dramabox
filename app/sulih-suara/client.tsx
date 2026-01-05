@@ -12,7 +12,7 @@ export default function SulihSuaraClient() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold">Sulih Suara Indonesia</h1>
-        <Tabs value={tab} onValueChange={setTab}>
+        <Tabs value={tab} onValueChange={(v) => setTab(v as "latest" | "popular")}>
           <TabsList>
             <TabsTrigger value="latest" active={tab === 'latest'} onSelect={setTab}>
               Terbaru
